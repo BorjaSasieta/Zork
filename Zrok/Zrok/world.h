@@ -24,6 +24,7 @@ private:
 
 	clock_t tick_timer;
 	list<Entity*> entities;
+	Player* player;
 	
 };
 

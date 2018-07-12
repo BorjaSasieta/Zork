@@ -42,40 +42,43 @@ void Entity::ChangeParentTo(Entity* new_parent)
 // ----------------------------------------------------
 bool Entity::Find(Entity* entity) const
 {
+	bool ret = false;
 	for (list<Entity*>::const_iterator it = container.begin(); it != container.cend(); ++it)
 	{
 		if ((*it) == entity)
-			return true;
+			ret = true;
 	}
 
-	return false;
+	return ret;
 }
 
 // ----------------------------------------------------
 Entity* Entity::Find(EntityType type) const
 {
+	Entity* ret = NULL;
 	for (list<Entity*>::const_iterator it = container.begin(); it != container.cend(); ++it)
 	{
 		if ((*it)->type == type)
-			return *it;
+			ret = *it;
 	}
 
-	return NULL;
+	return ret;
 }
 
 // ----------------------------------------------------
 Entity* Entity::Find(const string& name, EntityType type) const
 {
+	Entity* ret = NULL;
 	for (list<Entity*>::const_iterator it = container.begin(); it != container.cend(); ++it)
 	{
 		if ((*it)->type == type)
 		{
 			if (Same((*it)->name, name))
-				return *it;
+				ret = *it;
 		}
 	}
 
-	return NULL;
+	return ret;
 }
 
 // ----------------------------------------------------
