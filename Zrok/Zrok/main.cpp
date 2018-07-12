@@ -1,0 +1,10 @@
+
+
+#include "comunicate.h"
+
+
+int main()
+{
+    return 0;
+}
+
