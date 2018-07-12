@@ -23,6 +23,7 @@ public:
 private:
 
 	clock_t tick_timer;
+	list<Entity*> entities;
 	
 };
 

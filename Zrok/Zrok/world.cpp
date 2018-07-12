@@ -1,5 +1,6 @@
 #include <iostream>
 #include "comunicate.h"
+#include "Entity.h"
 #include "world.h"
 
 // ----------------------------------------------------
@@ -11,7 +12,10 @@ World::World()
 // ----------------------------------------------------
 World::~World()
 {
-	
+	for (list<Entity*>::iterator it = entities.begin(); it != entities.end(); ++it)
+		delete *it;
+
+	entities.clear();
 }
 
 // ----------------------------------------------------
