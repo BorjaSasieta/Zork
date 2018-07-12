@@ -6,10 +6,13 @@
 
 using namespace std;
 
+class Room;
+class Item;
+
 class Creature : public Entity
 {
 public:
-	Creature(const char* name, const char* description);
+	Creature(const char* name, const char* description, Room* room);
 	~Creature();
 
 	virtual bool Go(const vector<string>& args);
@@ -30,7 +33,10 @@ public:
 	virtual void Die();
 	virtual bool Loot(const vector<string>& args);
 	virtual void Stats() const;
-
+	
+	Room* GetRoom() const;
+	bool PlayerInRoom() const;
+	bool IsAlive() const;
 	
 public:
 
@@ -40,6 +46,8 @@ public:
 	int min_protection;
 	int max_protection;
 	Creature* combat_target;
+	Item* weapon;
+	Item* armour;
 };
 
 #endif //__Creature__
