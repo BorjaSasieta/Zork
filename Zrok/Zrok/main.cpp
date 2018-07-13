@@ -14,9 +14,9 @@ using namespace std;
 
 int main()
 {
-	char key;
 	string player_input;
 	vector<string> args;
+	bool content = false;
 	args.reserve(10);
 
 	cout << WHITE_ "Welcome to MyZork!\n" _WHITE;
@@ -28,27 +28,11 @@ int main()
 
 	while (1)
 	{
-		if (_kbhit() != 0)
+ 		while (content)
 		{
-			key = _getch();
-			if (key == '\b') // backspace
-			{
-				if (player_input.length() > 0)
-				{
-					player_input.pop_back();
-					//cout << BACKSPACE;
-					cout << '\b';
-					cout << " ";
-					cout << '\b';
-				}
-			}
-			else if (key != '\r') // return
-			{
-				player_input += key;
-				cout << key;
-			}
-			else
-				Tokenize(player_input, args);
+			getline(cin, player_input);
+			Tokenize(player_input, args);
+			content = false;
 		}
 
 		if (args.size() > 0 && Same(args[0], "quit"))
@@ -61,8 +45,9 @@ int main()
 		{
 			args.clear();
 			player_input = "";
-			cout << "> ";
+			cout << "\n>";
 		}
+		content = true;
 	}
 
 	cout << "\nThanks for playing, Bye!\n";

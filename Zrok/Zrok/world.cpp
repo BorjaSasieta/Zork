@@ -11,7 +11,7 @@ World::World()
 	Room* house = new Room("House", "You are inside a beautiful but small white house.");
 	Room* basement = new Room("Basement", "The basement features old furniture and dim light.");
 
-	Exit* ex1 = new Exit("west", "east", "Little path", house, forest);
+	Exit* ex1 = new Exit("west", "east", "Little", house, forest);
 	Exit* ex2 = new Exit("down", "up", "Stairs", house, basement);
 	ex2->locked = true;
 
@@ -67,7 +67,7 @@ World::~World()
 // ----------------------------------------------------
 bool World::Tick(vector<string>& args)
 {
-	bool ret = true;
+	bool ret = false;
 
 	if (args.size() > 0 && args[0].length() > 0)
 		ret = ParseCommand(args);
