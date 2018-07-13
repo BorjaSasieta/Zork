@@ -1,6 +1,3 @@
-// codi font de l'arxiu generador de interacció amb l'usuari
-
-//inclusió de la capsalera:
 #include "comunicate.h"
 
 bool Same(const string& a, const string& b)

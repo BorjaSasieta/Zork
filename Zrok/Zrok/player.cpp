@@ -127,7 +127,7 @@ void Player::Inventory() const
 		cout << "\nYou do not own any item.\n";
 	}
 	
-	else if(items.size > 0){
+	else{
 		for (list<Entity*>::const_iterator it = items.begin(); it != items.cend(); ++it)
 		{
 			if (*it == weapon)

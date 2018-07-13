@@ -355,7 +355,7 @@ int Creature::MakeAttack()
 	if (!IsAlive() || !combat_target->IsAlive())
 	{
 		combat_target = combat_target->combat_target = NULL;
-		return;
+		return 0;
 	}
 
 	int result = (weapon) ? weapon->GetValue() : Roll(min_damage, max_damage);

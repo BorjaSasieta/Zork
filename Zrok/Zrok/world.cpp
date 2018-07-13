@@ -1,11 +1,4 @@
 #include <iostream>
-#include "comunicate.h"
-#include "Entity.h"
-#include "creature.h"
-#include "item.h"
-#include "exit.h"
-#include "room.h"
-#include "player.h"
 #include "world.h"
 
 // ----------------------------------------------------

@@ -1,8 +1,8 @@
 
 //Capsalera de propietats: 
 
-#ifndef __Properties__
-#define __Properties__
+#ifndef __comunicate__
+#define __comunicate__
 
 #include <string>
 #include <vector>
@@ -15,4 +15,4 @@ bool Same(const string& a, const char* b);
 int Roll(int min, int max);
 void Tokenize(const string& line, vector<string>& arguments);
 
-#endif //__Properties__
+#endif __comunicate__

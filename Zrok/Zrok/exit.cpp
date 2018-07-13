@@ -29,7 +29,7 @@ void Exit::Look() const
 // ----------------------------------------------------
 const string& Exit::GetNameFrom(const Room* room) const
 {
-	string ret = NULL;
+	string ret;
 	if (room == parent)
 		ret = name;
 	if (room == destination)
