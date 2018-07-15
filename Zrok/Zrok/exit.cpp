@@ -27,14 +27,16 @@ void Exit::Look() const
 }
 
 // ----------------------------------------------------
-const string& Exit::GetNameFrom(const Room* room) const
+const char* Exit::GetNameFrom(const Room* room) const
 {
 	string ret;
 	if (room == parent)
 		ret = name;
 	if (room == destination)
 		ret = opposite_name;
-	return ret;
+	char* ret2 = new char[ret.size() + 1];
+	copy(ret.begin(), ret.end(), ret2);
+	return ret2;
 }
 
 // ----------------------------------------------------

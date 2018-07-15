@@ -61,13 +61,15 @@ void Room::Look() const
 Exit* Room::GetExit(const string& direction) const
 {
 	Exit* ret = NULL;
-	for (list<Entity*>::const_iterator it = container.begin(); it != container.cend(); ++it)
+ 	for (list<Entity*>::const_iterator it = container.begin(); it != container.cend(); ++it)
 	{
 		if ((*it)->type == EXIT)
 		{
 			Exit* ex = (Exit*)*it;
-			if (Same(ex->GetNameFrom(this), direction))
+			const char* aux = ex->GetNameFrom(this);
+			if (Same(direction, aux)) {
 				ret = ex;
+			}				
 		}
 	}
 

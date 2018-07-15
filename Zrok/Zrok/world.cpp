@@ -10,23 +10,35 @@ World::World()
 	Room* forest = new Room("Forest", "You are surrounded by tall trees. It feels like a huge forest someone could get lost easily.");
 	Room* house = new Room("House", "You are inside a beautiful but small white house.");
 	Room* basement = new Room("Basement", "The basement features old furniture and dim light.");
+	Room* swamp = new Room("Swamp", "Have you found a swamp, beyond the forest is very beautiful but there is some danger.");
 
 	Exit* ex1 = new Exit("west", "east", "Little", house, forest);
 	Exit* ex2 = new Exit("down", "up", "Stairs", house, basement);
+	Exit* ex3 = new Exit("north", "south", "Water", forest, swamp);
+
 	ex2->locked = true;
 
 	entities.push_back(forest);
 	entities.push_back(house);
 	entities.push_back(basement);
+	entities.push_back(swamp);
 
 	entities.push_back(ex1);
 	entities.push_back(ex2);
+	entities.push_back(ex3);
 
 	// Creatures ----
 	Creature* butler = new Creature("Butler", "It's James, the house Butler.", house);
+	Creature* monster = new Creature("Monster", "It's a monster in the swamp.", swamp);
+	Creature* drunk = new Creature("Drunk", "It's Robert, the drunk of the swamp.", swamp);
+
 	butler->hit_points = 10;
+	monster->hit_points = 15;
+	drunk->hit_points = 20;
 
 	entities.push_back(butler);
+	entities.push_back(monster);
+	entities.push_back(drunk);
 
 	// Items -----
 	Item* mailbox = new Item("Mailbox", "Looks like it might contain something.", house);
@@ -44,6 +56,9 @@ World::World()
 	shield->min_value = 1;
 	shield->max_value = 3;
 	butler->AutoEquip();
+
+	Item* shield2(shield);
+	shield2->parent = drunk;
 
 	entities.push_back(mailbox);
 	entities.push_back(sword);

@@ -16,7 +16,7 @@ public:
 
 	void Look() const;
 
-	const string& GetNameFrom(const Room* room) const;
+	const char* GetNameFrom(const Room* room) const;
 	Room* GetDestinationFrom(const Room* room) const;
 
 public:
